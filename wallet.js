@@ -16,14 +16,13 @@ var pluginConfig = {
   account: ''
 };
 
-// TODO: do only once per run
-function initRpc() {
-  var dashdConf = parseConf(pluginConfig.dashdConfigurationPath);
-
+function initRpc(config) {
   var rpcConfig = {
     protocol: 'http',  // TODO support https
-    user: dashdConf.rpcuser,
-    pass: dashdConf.rpcpassword
+    user: config.guid,
+    pass: config.password,
+    host: '127.0.0.1',
+    port: '8332'
   };
 
   rpc = new RpcClient(rpcConfig);
@@ -35,7 +34,7 @@ exports.config = function config(localConfig) {
   if (localConfig) _.merge(pluginConfig, localConfig);
 
   // initialize Rpc only after plugin is configured
-  initRpc();
+  initRpc(pluginConfig);
 };
 
 
@@ -107,3 +106,18 @@ exports.sendBitcoins = function sendBitcoins(address, satoshis, fee, callback) {
     callback(null, result.result);
   });
 };
+
+exports.newAddress = function(info, callback) {
+  rpc.getNewAddress(function(err, result) {
+    if (err) {
+      return callback(err);
+    }
+    data = JSON.parse(result);
+    if (!data.result) {
+      callback('unable to get address', null);
+    } else {
+      callback(null, data.result);
+    }
+  });
+};
+
