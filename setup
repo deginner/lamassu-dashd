@@ -8,7 +8,7 @@ var psql = process.env.DATABASE_URL || 'postgres://lamassu:lamassu@localhost/lam
 
 var config = new LamassuConfig(psql);
 
-console.log('\nSetting up the Dash wallet and trading plugin using Dashd.\n');
+console.log('\nSetting up the Dash wallet plugin using Dashd.\n');
 console.log('Please enter your API credentials.\n');
 promptly.prompt('RPC User: ', function(keyErr, key) {
   promptly.password('RPC Password: ', function(secretErr, secret) {

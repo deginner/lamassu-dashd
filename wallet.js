@@ -77,7 +77,7 @@ exports.balance = function balance(callback) {
     }
 
     callback(null, {
-      BTC: Math.round(SATOSHI_FACTOR * result.result)
+      DASH: Math.round(SATOSHI_FACTOR * result.result)
     });
   });
 };
