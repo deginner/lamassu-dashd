@@ -1,23 +1,23 @@
 {
-  "name": "lamassu-bitcoind",
+  "name": "lamassu-dashd",
   "version": "1.0.3",
-  "description": "Lamassu bitcoind module",
+  "description": "Lamassu dashd module",
   "main": "wallet.js",
   "scripts": {
     "test": "mocha"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/lamassu/lamassu-bitcoind.git"
+    "url": "https://github.com/deginner/lamassu-dashd.git"
   },
   "keywords": [
     "Lamassu",
     "Bitcoin"
   ],
-  "author": "Lamassu (https://lamassu.is)",
+  "author": "Deginner (http://deginner.com)",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/lamassu/lamassu-bitcoind/issues"
+    "url": "https://github.com/deginner/lamassu-dashd/issues"
   },
   "devDependencies": {
     "chai": "^1.9.1",
@@ -26,6 +26,6 @@
   "dependencies": {
     "async": "~0.2.10",
     "lodash": "^2.4.1",
-    "bitcore": "~0.1.18"
+    "dashd-rpc": "~0.5.0"
   }
 }
