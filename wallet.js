@@ -45,27 +45,6 @@ function richError(msg, name) {
 }
 
 
-/*
- * initialize RpcClient
- */
-function parseConf(confPath) {
-  var conf = fs.readFileSync(confPath);
-  var lines = conf.toString().split('\n');
-
-  var res = {};
-  for (var i = 0; i < lines.length; i++) {
-    var keyVal = lines[i].split('=');
-
-    // skip when value is empty
-    if (!keyVal[1]) continue;
-
-    res[keyVal[0]] = keyVal[1];
-  }
-
-  return res;
-}
-
-
 // We want a balance that includes all spends (0 conf) but only deposits that
 // have at least 1 confirmation. getbalance does this for us automatically.
 exports.balance = function balance(callback) {
